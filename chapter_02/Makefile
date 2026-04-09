@@ -1,13 +1,15 @@
+MAKEFLAGS += -r # remove regras implícitas do make
 AS			= nasm
-LINKER 	= ld 
+LINKER 	= ld
 AFLAGS 	= -f elf64
 LDFLAGS = -o $@
-# BINS 		= nibble.o
+
+.SECONDARY: %.elf
 
 # Regra de padrão: qualquer alvo sem extensão vem de um .asm de mesmo nome
 # $@ = nome do alvo (ex: hello)
 # $< = primeira dependência (ex: hello.asm)
-%: %.o
+%.elf: %.o
 	$(LINKER) $< $(LDFLAGS)
 
 # Regra intermediária: .asm → .o
@@ -15,6 +17,4 @@ LDFLAGS = -o $@
 	$(AS) $(AFLAGS) $< -o $@
 
 clean:
-	rm -f *.o $(BINS)
-
-# all: $(BINS)
+	rm -f *.o *.elf
