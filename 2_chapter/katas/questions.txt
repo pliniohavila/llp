@@ -1,0 +1,7 @@
+Coloque breakpoint em compare, use p $rbx antes e depois da função — o valor foi preservado?
+Houve alterações, antes era 0x0 e depois ficou com 0x65
+Use set *(char*)&byte2 = 'B' e confirme com x/1xb &byte2 que mudou
+Mudou
+ Execute p ($eflags >> 6) & 1 após o cmp nos dois casos
+ Antes: 0
+ Depois: 1
