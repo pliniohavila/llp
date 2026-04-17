@@ -7,9 +7,19 @@ section .data
 section .text
 ; rax, rdi, rcx, rdx;
 ; registradores que podem aceitar argumentos: rdi, rsi, rdx, rcs, r8 e r9
+; rsp aponta para o último elemento da stack
 _start:
-    mov     rdi, char
-    call    print_char
+    mov     rax, 1          ; rax = 1 write
+    mov     rdi, 1          ; rdi = 1 stdout
+    push    0x34
+    push    0x32
+    ; mov     al, [rsp+8]
+    mov     rsi, [rsp+8]         ; rdi = char address
+    mov     rdx, 1          ; rdx = byte count
+    syscall
+    
+    ; mov     rdi, char
+    ; call    print_char
 
     call    print_newline   ; chama print_newline
     call exit
