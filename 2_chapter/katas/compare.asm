@@ -77,8 +77,8 @@ print_newline:
   mov rsi, newline
   mov rdx, 1
   syscall ; rax = 1 write
-          ; rdi = 1 - stadout
+          ; rdi = 1 - stdout
           ; rsi = char address
-          ; byte count
+          ; rdx = byte count
   
   ret

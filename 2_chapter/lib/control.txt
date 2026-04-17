@@ -1,0 +1,13 @@
+[x] exit
+[x] string_length
+[x] print_string
+[x] print_char
+[x] print_newline
+[ ] print_uint
+[ ] print_int
+[ ] read_char
+[ ] read_word
+[ ] parse_uint
+[ ] parse_int
+[ ] string_equals
+[ ] string_copy
